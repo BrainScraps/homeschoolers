@@ -9,4 +9,6 @@ class Educator < ActiveRecord::Base
   attr_accessible :username, :email, :password, :password_confirmation, :remember_me, :family_id,
     :profile_picture, :profile, :city
   # attr_accessible :title, :body
+  has_many :resources
+  belongs_to :family
 end

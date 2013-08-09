@@ -3,4 +3,5 @@ class Student < ActiveRecord::Base
 
   has_many :completions
   has_many :outcomes, through: :completions
+  belongs_to :family
 end
