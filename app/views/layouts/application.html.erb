@@ -2,16 +2,32 @@
 <html>
 <head>
   <title>Homeschoolers</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+  <div class="container">
+    <%= render partial: 'static_pages/navbar' %>
+    
+    <% if notice %>
+      <p class="notice"> <%= notice %> </p>
+    <% end %>
+        <% if alert %>
+      <p class="alert"> <%= alert %> </p>
+    <% end %>
 
 
 <%= yield %>
+
+      <div class="footer">
+        <p>&copy; Company 2013</p>
+      </div>
+
+    </div> <!-- /container -->
+
 
 </body>
 </html>
