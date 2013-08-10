@@ -24,6 +24,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'will_paginate', '3.0.4'
 
 group :development, :test do
   gem 'pry-rails'
