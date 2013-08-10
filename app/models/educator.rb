@@ -11,4 +11,10 @@ class Educator < ActiveRecord::Base
   # attr_accessible :title, :body
   has_many :resources
   belongs_to :family
+
+  def to_s
+    username
+  end
+
+  
 end
