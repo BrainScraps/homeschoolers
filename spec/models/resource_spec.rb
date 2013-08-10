@@ -2,13 +2,17 @@ require 'spec_helper'
 
 describe Resource do
   before do
-    @resource = FactoryGirl.create(:resource)
-    @outcome = FactoryGirl.create(:outcome)
+    @family = FactoryGirl.create(:family)
     @student = FactoryGirl.create(:student)
     @educator = FactoryGirl.create(:educator)
+    @outcome = FactoryGirl.create(:outcome)
   end
 
- it "can "
+   it "can be marked private" do
+    @resource = FactoryGirl.create(:resource)
+    visit resources_edit_path
+    fill_in 'public', :with => false
+   end
 end
 
 

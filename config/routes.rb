@@ -1,8 +1,8 @@
 Homeschoolers::Application.routes.draw do
-  
+
   get "resources/index"
 
-  get "resources/create"
+  get "resources/new"
 
   get "resources/show"
 

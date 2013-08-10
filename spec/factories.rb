@@ -36,6 +36,8 @@ FactoryGirl.define do
     grade_level '6'
     subject 'History'
     description 'American Civil War'
+    due_date '08-15-2013'
+    student
   end
 
 end
