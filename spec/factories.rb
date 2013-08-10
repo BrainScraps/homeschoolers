@@ -15,18 +15,28 @@ FactoryGirl.define do
   end
 
   factory :resource do
-
-
+    name "History Requirements"
+    description "K-6 grades Michigan Schools "
+    url "http://michigan.gov/documents/mde/SSGLCE_218368_7.pdf"
     public true
+    grade "6"
+    subject 'History'
   end
 
-  factory :student do
 
+  factory :student do
+    name 'milo'
+    birth '10-12-2004'
+    email 'milo@example.com'
+    gender 'male'
+    family
   end
 
   factory :outcome do
+    grade_level '6'
+    subject 'History'
+    description 'American Civil War'
   end
-
 
 end
 
