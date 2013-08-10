@@ -10,7 +10,11 @@
 </head>
 <body>
   <div class="container">
-    <%= render partial: 'static_pages/navbar' %>
+        <% if params[:controller].include? "forem" %>
+          <%= render partial: 'static_pages/fnavbar' %>
+        <% else %>
+          <%= render partial: 'static_pages/navbar' %> 
+        <% end %>
     
     <% if notice %>
       <p class="notice"> <%= notice %> </p>
