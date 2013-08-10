@@ -1,5 +1,15 @@
 Homeschoolers::Application.routes.draw do
   
+  get "resources/index"
+
+  get "resources/create"
+
+  get "resources/show"
+
+  get "resources/destroy"
+
+  get "resources/edit"
+
   devise_for :educators
 
   get "static_pages/home"

@@ -1,22 +1,32 @@
 FactoryGirl.define do
 
-  factory :user do
+  factory :family do
+    name "Elias"
+    motto "Let Dad sleep"
+  end
+
+  factory :educator do
     username "mom"
     email "mom@example.com"
     password "password"
     password_confirmation "password"
+    profile "Likes History, Math, Science and Writing."
+    family
   end
 
   factory :resource do
-    room_type "Vulcan"
-    room_number 3
+
+
+    public true
   end
 
-  factory :flight do
-    name "su1300"
-    docking_hour Time.now
-    launching_hour Time.now
+  factory :student do
+
   end
+
+  factory :outcome do
+  end
+
 
 end
 
