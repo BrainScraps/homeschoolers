@@ -9,7 +9,7 @@ Homeschoolers::Application.routes.draw do
 
   devise_for :educators
 
-  match 'educators/:username' => 'educators#show', as: 'educator'
+  match 'educators/:id' => 'educators#show', as: 'educator'
 
   get "static_pages/home"
 

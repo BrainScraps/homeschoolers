@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130810003256) do
+ActiveRecord::Schema.define(:version => 20130811064806) do
 
   create_table "completions", :force => true do |t|
     t.integer  "student_id"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20130810003256) do
     t.boolean  "forem_admin",            :default => false
     t.string   "forem_state",            :default => "pending_review"
     t.boolean  "forem_auto_subscribe",   :default => false
+    t.string   "forums"
   end
 
   add_index "educators", ["email"], :name => "index_educators_on_email", :unique => true
@@ -171,6 +172,7 @@ ActiveRecord::Schema.define(:version => 20130810003256) do
     t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.date     "due_date"
   end
 
   create_table "plans", :force => true do |t|
@@ -192,6 +194,8 @@ ActiveRecord::Schema.define(:version => 20130810003256) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.boolean  "public"
+    t.string   "subject"
+    t.string   "grade_level"
   end
 
   create_table "students", :force => true do |t|
@@ -203,6 +207,7 @@ ActiveRecord::Schema.define(:version => 20130810003256) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "email"
+    t.string   "gender"
   end
 
 end

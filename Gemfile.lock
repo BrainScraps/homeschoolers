@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/radar/forem-bootstrap.git
+  revision: ed6dca40937b5c73e0ab04c912d27313e945362b
+  specs:
+    forem-bootstrap (0.0.1)
+      bootstrap-sass (~> 2.3.2.1)
+
+GIT
   remote: git://github.com/radar/forem.git
   revision: 8e9aa362472200d1e165319644d4590d2172df4d
   specs:
@@ -252,6 +259,7 @@ DEPENDENCIES
   dotenv-rails
   factory_girl_rails (~> 4.0)
   forem!
+  forem-bootstrap!
   jquery-rails
   leaflet-rails
   meta_request

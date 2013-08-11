@@ -25,6 +25,7 @@ end
 
 gem 'jquery-rails'
 gem 'will_paginate', '3.0.4'
+gem 'forem-bootstrap', :github => "radar/forem-bootstrap"
 
 group :development, :test do
   gem 'pry-rails'
