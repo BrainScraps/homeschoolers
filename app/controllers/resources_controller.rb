@@ -1,13 +1,14 @@
 class ResourcesController < ApplicationController
+
   def index
     @resources = Resource.all
   end
 
-  def new
+  def my_new
       @resource = Resource.new
-    end
+  end
 
-    def create
+    def my_create
       Resource.create(params["resource"])
       if @resource.save
         # redirect_to deals with routing
@@ -23,7 +24,7 @@ class ResourcesController < ApplicationController
   end
 
   def destroy
-      @resource = Flight.find(params[:id])
+      @resource = Resource.find(params[:id])
       @resource.destroy
       redirect_to resources_index_path
   end
