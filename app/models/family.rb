@@ -3,6 +3,6 @@ class Family < ActiveRecord::Base
 
   has_many :plans
   has_many :gettogethers, through: :plans
-  has_many :educators
+  has_one :educator
   has_many :students
 end

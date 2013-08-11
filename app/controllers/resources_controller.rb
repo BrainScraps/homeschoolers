@@ -1,34 +1,45 @@
 class ResourcesController < ApplicationController
 
+  # all resources where public => true
   def index
-    @resources = Resource.all
+    @public_resources
   end
 
+  # only educators can create a new resource
+  # educator_id must be part of the new resource record
+  # only educators execute methods with my_ prepended
   def my_new
       @resource = Resource.new
   end
 
-    def my_create
-      Resource.create(params["resource"])
-      if @resource.save
-        # redirect_to deals with routing
-        redirect_to resources_index_path
-      else
-        # render Deals with the new view
-        render "new"
-      end
+  # saves a  new resource
+  def my_create
+    Resource.create(params["resource"])
+    if @resource.save
+      # redirect_to deals with routing
+      redirect_to my_resources_path
+    else
+      # render resources with the my_new view
+      render "my_new"
     end
+  end
+
+  def my_resources
+      @my_resources
+  end
 
   def show
       @resource = Resource.find(params[:id])
   end
 
-  def destroy
+  def my_destroy
       @resource = Resource.find(params[:id])
       @resource.destroy
-      redirect_to resources_index_path
+      redirect_to my_resources_path
   end
 
   def edit
+    @resource = Resource.find(params[:id])
+
   end
 end
