@@ -14,10 +14,15 @@ class Educator < ActiveRecord::Base
   # attr_accessible :title, :body
   has_many :resources
   belongs_to :family
+  validates :username, uniqueness: true
 
   def to_s
     username
   end
 
+
+  def moderates_category?(category_id) 
+    forums.include? category_id
+  end
   
 end

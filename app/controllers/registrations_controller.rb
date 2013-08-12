@@ -6,4 +6,11 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
 
+  # def create 
+  #   @educator = Educator.new(params[:educator])
+
+  #   binding.pry
+
+  # end
+
 end
