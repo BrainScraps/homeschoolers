@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Homeschoolers</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="container">
+<<<<<<< HEAD
+    <%= render partial: 'static_pages/navbar' %>
+
+=======
+        <% if params[:controller].include? "forem" %>
+          <%= render partial: 'static_pages/fnavbar' %>
+        <% else %>
+          <%= render partial: 'static_pages/navbar' %> 
+        <% end %>
+    
+>>>>>>> forums
+    <% if notice %>
+      <p class="notice"> <%= notice %> </p>
+    <% end %>
+        <% if alert %>
+      <p class="alert"> <%= alert %> </p>
+    <% end %>
+
+
+<%= yield %>
+
+      <div class="footer">
+        <p>&copy; Kohwop Co 2013</p>
+      </div>
+
+    </div> <!-- /container -->
+
+
+</body>
+</html>
