@@ -5,7 +5,7 @@ require "capistrano_database_yml"
 
 #load 'lib/deploy/seed' #include if you need to load seed data with cap deploy:seed 
 
-server "hashdash.izk.me", :app, :web, :db, :primary => true
+server "kohwop.com", :app, :web, :db, :primary => true
 set :user, "isaac" # The server's user for deploys
 # set :scm_passphrase, ENV['server_pass'] # The deploy user's password
 
