@@ -9,9 +9,13 @@ describe Resource do
   end
 
    it "can be marked private" do
-    @resource = FactoryGirl.create(:resource)
-    visit resources_edit_path
-    fill_in 'public', :with => false
+      @resource = FactoryGirl.create(:resource)
+      visit resources_edit_path
+      fill_in 'public', :with => false
+   end
+
+   it "educator can view all thier resourcse public or private" do
+     visit my_resources_path
    end
 end
 

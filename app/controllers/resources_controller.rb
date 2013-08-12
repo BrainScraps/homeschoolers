@@ -33,13 +33,13 @@ class ResourcesController < ApplicationController
   end
 
   def my_destroy
-      @resource = Resource.find(params[:id])
+      @resource = Resource.find(params[:educator_id])
       @resource.destroy
       redirect_to my_resources_path
   end
 
   def edit
-    @resource = Resource.find(params[:id])
+    @resource = Resource.find(params[:educator_id])
 
   end
 end
