@@ -11,3 +11,14 @@
  *= require_self
  *= require_tree .
  */
+
+#container {
+  background: url('apple.jpg') no-repeat center fixed;
+  height: 900px;
+  width:1200px;
+}
+
+img {
+  height: 100px;
+  width: 140px;
+}

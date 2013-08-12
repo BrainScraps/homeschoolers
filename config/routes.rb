@@ -1,5 +1,9 @@
 Homeschoolers::Application.routes.draw do
 
+  resources :students
+  resources :outcomes
+  resources :resources
+
   get "resources/index"
 
   get "resources/new"

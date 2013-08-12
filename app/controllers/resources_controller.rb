@@ -2,7 +2,7 @@ class ResourcesController < ApplicationController
 
   # all resources where public => true
   def index
-    @public_resources
+    @public_resources = Resource.where("public=true")
   end
 
   # only educators can create a new resource
@@ -36,6 +36,12 @@ class ResourcesController < ApplicationController
       @resource = Resource.find(params[:educator_id])
       @resource.destroy
       redirect_to my_resources_path
+  end
+
+  def my_destroy
+      @resource = Resource.find(params[:id])
+      @resource.destroy
+      redirect_to edit_resource_path
   end
 
   def edit

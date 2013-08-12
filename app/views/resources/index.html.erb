@@ -1,2 +1,24 @@
-<h1>Resources#index</h1>
-<p>Find me in app/views/resources/index.html.erb</p>
+<h1>The Supply Cabinet</h1>
+
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @public_resources.each do |r| %>
+  <tr>
+    <td><a href="<%= r.url %>"><%= r.name %></td>
+    <td><%= r.description %></td>
+    <td><%= r.grade_level %></td>
+    <td><%= r.subject %></td>
+    <td>Submitted by: <%= r.subject %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Add a Resource', new_resource_path %>
