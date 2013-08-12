@@ -9,12 +9,14 @@ class Educator < ActiveRecord::Base
   attr_accessible :username, :email, :password, :password_confirmation, :remember_me, :family_id,
     :profile_picture, :profile, :city, :forums
 
-    serialize :forums, Array
+  serialize :forums, Array
 
   # attr_accessible :title, :body
   has_many :resources
   belongs_to :family
   validates :username, uniqueness: true
+
+  after_create :redirect_to_profile
 
   def to_s
     username
@@ -23,6 +25,10 @@ class Educator < ActiveRecord::Base
 
   def moderates_category?(category_id) 
     forums.include? category_id
+  end
+
+  def redirect_to_profile
+    redirect_to  'http://google.com'
   end
   
 end

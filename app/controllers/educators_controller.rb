@@ -4,4 +4,8 @@ class EducatorsController < ApplicationController
     @educator = Educator.find(params[:id])
   end
 
+  def edit
+    @educator = Educator.find(params[:id])
+  end
+
 end
