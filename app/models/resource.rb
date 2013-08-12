@@ -1,8 +1,9 @@
 class Resource < ActiveRecord::Base
-  attr_accessible :description, :name, :price, :upload, :url, :public, :subject, :grade_level
+  attr_accessible :description, :name, :price, :upload, :url, :public, :subject, :grade_level, :educator_id
+
 
    scope :public_resources, where(public: true)
-   # scope :my_resources, where(educator_id: current_educator.id)
+   scope :my_resources, where(educator_id: 2)
 
    # how to use these scopes:
    # Resource.public_resources.each

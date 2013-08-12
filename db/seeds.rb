@@ -7,15 +7,23 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 elias = Family.create(name: 'Elias', motto: 'Let Dad Sleep')
+price = Family.create(name: 'Price', motto: 'Faith, Love, Live')
 
 isaac = Educator.create(username: 'isaac',
                         email: 'isaac@example.com',
                         password: 'topsecret',
                         password_confirmation: 'topsecret',
                         family_id:  elias.id)
+patsy = Educator.create(username: 'patsy',
+                        email: 'patsy@example.com',
+                        password: 'password',
+                        password_confirmation: 'password',
+                        family_id:  price.id)
 
 milo = Student.create(name: 'Milo', family_id: elias.id, birth: '2-14-2006', gender: 'male', grade: 'k')
-jane = Student.create(name: 'Jane', family_id: elias.id, birth: '2-14-2002', gender: 'male', grade: '5')
+jane = Student.create(name: 'Jane', family_id: elias.id, birth: '2-14-2002', gender: 'female', grade: '5')
+jesse = Student.create(name: 'Jesse', family_id: price.id, birth: '2-14-1994', gender: 'male', grade: '11')
+ruby  = Student.create(name: 'Ruby', family_id: price.id, birth: '2-14-2000', gender: 'female', grade: '8')
 
 comm_calendar = Resource.create( name: 'Pleasanton Community Calendar',
                             subject: 'Other',
@@ -23,7 +31,8 @@ comm_calendar = Resource.create( name: 'Pleasanton Community Calendar',
                             grade_level: 'all',
                             price: 'free',
                             public: true,
-                            description: 'Community events in Pleasanton, CA' )
+                            description: 'Community events in Pleasanton, CA',
+                            educator_id: isaac.id)
 
 
 science_pdf = Resource.create( name: 'Science Standars',
@@ -32,5 +41,6 @@ science_pdf = Resource.create( name: 'Science Standars',
                             grade_level: '6',
                             price: 'free',
                             public: true,
-                            description: 'List of science guidelines for 6th grade students in California' )
+                            description: 'List of science guidelines for 6th grade students in California',
+                            educator_id: patsy.id )
 
