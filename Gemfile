@@ -8,7 +8,7 @@ gem 'rails', '3.2.13'
 gem 'pg'
 gem 'devise'
 gem 'cancan'
-gem  'forem'
+gem 'forem', :github => "radar/forem"
 gem 'leaflet-rails'
 
 # Gems used only for assets and not required
@@ -24,6 +24,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'will_paginate', '3.0.4'
+gem 'forem-bootstrap', :github => "radar/forem-bootstrap"
 
 group :development, :test do
   gem 'pry-rails'
@@ -48,7 +50,7 @@ end
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+ gem 'unicorn'
 
 # Deploy with Capistrano
  gem 'capistrano'

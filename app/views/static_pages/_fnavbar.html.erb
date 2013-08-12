@@ -3,14 +3,13 @@
         <li><a href="/">Home</a></li>
         <li><a href="#">About</a></li>
         <li><a href="#">Contact</a></li>
-
+        <% if params[:controller].include? "forem" %>
           <% if current_educator %>
-            <li><%= link_to "Sign Out",  destroy_educator_session_path, method: :delete %> </li>
+            <li><%= link_to "Sign Out",  main_app.destroy_educator_session_path, method: :delete %> </li>
           <% else %>
-            <li><%= link_to "Sign In",  new_educator_session_path %> </li>
-            <li><%= link_to "Sign Up",  new_educator_registration_path %> </li>
+            <li><%= link_to "Sign In",  main_app.new_educator_session_path %> </li>
           <% end %>
-
+        <% end %> 
       </ul>
       <h3 class="text-muted">learnwith.us</h3>
     </div>
