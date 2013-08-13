@@ -7,9 +7,10 @@ class Educator < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :username, :email, :password, :password_confirmation, :remember_me, :family_id,
-    :profile_picture, :profile, :city, :forums
+    :profile_picture, :profile, :city, :forums, :state
 
   serialize :forums, Array
+
 
   # attr_accessible :title, :body
   has_many :resources
@@ -23,12 +24,33 @@ class Educator < ActiveRecord::Base
   end
 
 
-  def moderates_category?(category_id) 
+  def member_of_category?(category_id) 
     forums.include? category_id
   end
 
-  def redirect_to_profile
-    redirect_to  'http://google.com'
+  def forum_array
+
+    result = []
+    if forums.length == 1 
+      result << Forem::Category.find(forum_id)
+    elsif forums.length > 1
+      
+      forums.each do |forum_id|
+
+        result << Forem::Category.find(forum_id)
+
+      end
+    else
+      result
+    end
+
+    result
   end
+
+
+
+  # def redirect_to_profile
+  #   redirect_to  'http://google.com'
+  # end
   
 end

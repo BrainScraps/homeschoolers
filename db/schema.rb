@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130813180859) do
+ActiveRecord::Schema.define(:version => 20130813014704) do
 
   create_table "completions", :force => true do |t|
     t.integer  "student_id"
@@ -44,6 +44,7 @@ ActiveRecord::Schema.define(:version => 20130813180859) do
     t.string   "forem_state",            :default => "pending_review"
     t.boolean  "forem_auto_subscribe",   :default => false
     t.string   "forums"
+    t.string   "state"
   end
 
   add_index "educators", ["email"], :name => "index_educators_on_email", :unique => true

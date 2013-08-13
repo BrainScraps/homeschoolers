@@ -1,7 +1,6 @@
-<% if current_educator %>
-  <h1> The <%= current_educator.family.name %> family</h1>
-  <h4> <%= current_educator.family.motto %> </h4>
-<% end %>
+<% if current_educator && current_educator.family %>
+
+<h1> The <%= current_educator.family.name %> family</h1>
 
 <div id="my_gettogethers">Calendar</div>
 
@@ -40,4 +39,4 @@
 <div id="public_resources"><%= link_to 'Supply Cabinet', resources_index_path %></div>
 <div id="students">My students</div>
 
-
+<% end %>
