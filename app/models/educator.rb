@@ -24,9 +24,30 @@ class Educator < ActiveRecord::Base
   end
 
 
-  def moderates_category?(category_id) 
+  def member_of_category?(category_id) 
     forums.include? category_id
   end
+
+  def forum_array
+
+    result = []
+    if forums.length == 1 
+      result << Forem::Category.find(forum_id)
+    elsif forums.length > 1
+      
+      forums.each do |forum_id|
+
+        result << Forem::Category.find(forum_id)
+
+      end
+    else
+      result
+    end
+
+    result
+  end
+
+
 
   # def redirect_to_profile
   #   redirect_to  'http://google.com'

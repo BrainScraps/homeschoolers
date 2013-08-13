@@ -1,12 +1,38 @@
 <% if @educator == current_educator %>
   
-  <h2> Your Profile</h2> 
+  <h2> Your Profile: </h2>
 
+  <%= "Username: #{@educator.username} "%> 
+  <br>
+  <%= "About me: #{@educator.profile}" %>
+  <br>
+
+  <h3> Member of the following groups: </h3> 
+  <ul> 
+    <% @educator.forums.each do |f| %>
+      <li> <%=link_to Forem::Category.find(f).name, forem.category_path(f)  %></li>
+
+    <% end %>
+  </ul>
+
+  <%= link_to "Edit my profile", educator_edit_path(current_educator.id), class: 'btn btn-info' %>
 
 <% else %>
 
   <h2> <%= @educator.username %>'s profile </h2> 
 
+  <%= "About me: #{@educator.profile}" %>
+  <br>
+  <%= "Location: #{@educator.city}, #{@educator.state}" %>
+  <br>
+
+  <h3> Member of the following groups: </h3> 
+  <ul> 
+    <% @educator.forums.each do |f| %>
+      <li> <%=link_to Forem::Category.find(f).name, forem.category_path(f)  %></li>
+
+    <% end %>
+  </ul>
 
 
 <% end %>
