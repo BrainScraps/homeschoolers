@@ -1,13 +1,43 @@
 <% if current_educator %>
   <h1> The <%= current_educator.family.name %> family</h1>
-  <h2> <%= current_educator.family.motto %> </h2>
+  <h4> <%= current_educator.family.motto %> </h4>
 <% end %>
 
 <div id="my_gettogethers">Calendar</div>
-<div id="my_resources">My Resources</div>
 
-<div id="public_resources">Supply Cabinet</div>
+<div id="my_resources">
+  <table>
+    <thead>
+      <th>Name</th>
+      <th>Subject</th>
+      <th>Grade</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </thead>
 
+
+    <% @public_resources.each do |resource| %>
+    <tr>
+        <td>  <%= resource.name %> </td>
+        <td>  <%= resource.subject %> </td>
+        <td>  <%= resource.grade_level %> </td>
+
+        <td><%= link_to 'Show', resource %></td>
+        <td><%= link_to 'Edit', edit_resource_path(resource) %></td>
+        <td><%= link_to 'Destroy', resource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+
+
+  </table>
+
+  <br />
+
+  <%= link_to 'New Resource', new_resource_path %>
+
+</div>
+<div id="public_resources"><%= link_to 'Supply Cabinet', resources_index_path %></div>
 <div id="students">My students</div>
 
 

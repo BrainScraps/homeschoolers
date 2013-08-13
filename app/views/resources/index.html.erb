@@ -1,34 +1,31 @@
-<h1>The Supply Cabinet</h1>
+<h1>Supply Cabinet</h1>
 
-<div id="supply_cabinet">
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Subject</th>
-        <th>Grade</th>
-        <th></th>
-        <th>Submitted by:</th>
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Subject</th>
+    <th>Grade</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </thead>
 
-        <th></th>
-        <th></th>
-      </tr>
 
-    <% @resources.each do |resource| %>
-      <tr>
+  <% @public_resources.each do |resource| %>
+  <tr>
+      <td>  <%= resource.name %> </td>
+      <td>  <%= resource.subject %> </td>
+      <td>  <%= resource.grade_level %> </td>
 
-        <td><a href="<%= resource.url %>"><%= resource.name %></a></td>
-        <td><%= resource.subject %></td>
-        <td><%= resource.grade_level %></td>
-        <td><%= resource.educator.username %></td>
-        <td><%= link_to 'Show', resource %></td>
-        <td><%= link_to 'Edit', edit_resource_path(resource) %></td>
-        <td><%= link_to 'Destroy', resource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-    </table>
+      <td><%= link_to 'Show', resource %></td>
+      <td><%= link_to 'Edit', edit_resource_path(resource) %></td>
+      <td><%= link_to 'Destroy', resource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
 
-    <br />
 
-    <%= link_to 'New Resource', new_resource_path %>
+</table>
 
-</div>
+<br />
+
+<%= link_to 'New Resource', new_resource_path %>

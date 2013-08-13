@@ -2,7 +2,12 @@ class ResourcesController < ApplicationController
   # GET /resources
   # GET /resources.json
   def index
-    @resources = Resource.all
+    @resources = Resource.where(public_id: true)
+  end
+
+  def my_index
+    @resources = Resource.where(educator_id: current_educator.id)
+
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +18,7 @@ class ResourcesController < ApplicationController
   # GET /resources/1
   # GET /resources/1.json
   def show
-    @resource = Resource.find(params[:id])
+    # @resource = Resource.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb

@@ -23,7 +23,7 @@ describe ResourcesController do
   # This should return the minimal set of attributes required to create a valid
   # Resource. As you add validations to Resource, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "index" => "MyString" } }
+  let(:valid_attributes) { {  } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -85,14 +85,14 @@ describe ResourcesController do
       it "assigns a newly created but unsaved resource as @resource" do
         # Trigger the behavior that occurs when invalid params are submitted
         Resource.any_instance.stub(:save).and_return(false)
-        post :create, {:resource => { "index" => "invalid value" }}, valid_session
+        post :create, {:resource => {  }}, valid_session
         assigns(:resource).should be_a_new(Resource)
       end
 
       it "re-renders the 'new' template" do
         # Trigger the behavior that occurs when invalid params are submitted
         Resource.any_instance.stub(:save).and_return(false)
-        post :create, {:resource => { "index" => "invalid value" }}, valid_session
+        post :create, {:resource => {  }}, valid_session
         response.should render_template("new")
       end
     end
@@ -106,8 +106,8 @@ describe ResourcesController do
         # specifies that the Resource created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
-        Resource.any_instance.should_receive(:update_attributes).with({ "index" => "MyString" })
-        put :update, {:id => resource.to_param, :resource => { "index" => "MyString" }}, valid_session
+        Resource.any_instance.should_receive(:update_attributes).with({ "these" => "params" })
+        put :update, {:id => resource.to_param, :resource => { "these" => "params" }}, valid_session
       end
 
       it "assigns the requested resource as @resource" do
@@ -128,7 +128,7 @@ describe ResourcesController do
         resource = Resource.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Resource.any_instance.stub(:save).and_return(false)
-        put :update, {:id => resource.to_param, :resource => { "index" => "invalid value" }}, valid_session
+        put :update, {:id => resource.to_param, :resource => {  }}, valid_session
         assigns(:resource).should eq(resource)
       end
 
@@ -136,7 +136,7 @@ describe ResourcesController do
         resource = Resource.create! valid_attributes
         # Trigger the behavior that occurs when invalid params are submitted
         Resource.any_instance.stub(:save).and_return(false)
-        put :update, {:id => resource.to_param, :resource => { "index" => "invalid value" }}, valid_session
+        put :update, {:id => resource.to_param, :resource => {  }}, valid_session
         response.should render_template("edit")
       end
     end
