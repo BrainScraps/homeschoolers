@@ -20,7 +20,11 @@ Homeschoolers::Application.routes.draw do
   # We ask that you don't use the :as option here, as Forem relies on it being the default of "forem"
   mount Forem::Engine, :at => '/forums'
 
-  devise_for :educators
+  devise_for :educators, :controllers => {:registrations => 'registrations'}
+
+  
+  get   'educators/:id/edit' => 'educators#edit', as: 'educator_edit'
+  post  'educators/:id/update' => 'educators#update', as: 'educator_update'
 
   match 'educators/:id' => 'educators#show', as: 'educator'
 

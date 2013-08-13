@@ -1,4 +1,12 @@
-<h2> <%= @educator.username %> </h2> 
+<% if @educator == current_educator %>
+  
+  <h2> Your Profile</h2> 
+
+
+<% else %>
+
+  <h2> <%= @educator.username %>'s profile </h2> 
 
 
 
+<% end %>

@@ -7,9 +7,10 @@ class Educator < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :username, :email, :password, :password_confirmation, :remember_me, :family_id,
-    :profile_picture, :profile, :city, :forums
+    :profile_picture, :profile, :city, :forums, :state
 
   serialize :forums, Array
+
 
   # attr_accessible :title, :body
   has_many :resources
@@ -27,8 +28,8 @@ class Educator < ActiveRecord::Base
     forums.include? category_id
   end
 
-  def redirect_to_profile
-    redirect_to  'http://google.com'
-  end
+  # def redirect_to_profile
+  #   redirect_to  'http://google.com'
+  # end
   
 end
