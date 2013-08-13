@@ -180,16 +180,6 @@ ActiveRecord::Schema.define(:version => 20130812192637) do
     t.date     "due_date"
   end
 
-  create_table "plans", :force => true do |t|
-    t.integer  "family_id"
-    t.integer  "gettogether_id"
-    t.string   "confirmation"
-    t.string   "students"
-    t.integer  "educator_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
-  end
-
   create_table "resources", :force => true do |t|
     t.text     "description"
     t.string   "url"

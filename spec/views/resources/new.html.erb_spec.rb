@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe "resources/edit" do
+describe "resources/new" do
   before(:each) do
-    @resource = assign(:resource, stub_model(Resource,
+    assign(:resource, stub_model(Resource,
       :index => "MyString",
       :new => "MyString",
       :create => "MyString",
@@ -10,14 +10,14 @@ describe "resources/edit" do
       :destroy => "MyString",
       :edit => "MyString",
       :update => "MyString"
-    ))
+    ).as_new_record)
   end
 
-  it "renders the edit resource form" do
+  it "renders new resource form" do
     render
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "form[action=?][method=?]", resource_path(@resource), "post" do
+    assert_select "form[action=?][method=?]", resources_path, "post" do
       assert_select "input#resource_index[name=?]", "resource[index]"
       assert_select "input#resource_new[name=?]", "resource[new]"
       assert_select "input#resource_create[name=?]", "resource[create]"

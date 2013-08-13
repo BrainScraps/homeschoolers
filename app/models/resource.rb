@@ -3,7 +3,7 @@ class Resource < ActiveRecord::Base
 
 
    scope :public_resources, where(public: true)
-   scope :my_resources, where(educator_id: 2)
+   # scope :my_resources, where(educator_id: current_educator.id)
 
    # how to use these scopes:
    # Resource.public_resources.each

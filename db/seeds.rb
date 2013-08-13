@@ -44,3 +44,24 @@ science_pdf = Resource.create( name: 'Science Standars',
                             description: 'List of science guidelines for 6th grade students in California',
                             educator_id: patsy.id )
 
+civil_war = Resource.create(name: 'Civil War lesson plan',
+                            subject: 'History',
+                            url: 'http://www.civilwar.org/education/teachers/curriculum/gifted-talented-curriculum.html',
+                            grade_level: 'all',
+                            public: true,
+                            description: "Designed for “gifted and talented” students — or for students with a special interest in the Civil War — this adaptable enrichment experience will give students the opportunity to conduct an in-depth study of one of several Civil War figures through the lenses of character and leadership.",
+                            educator_id: patsy.id)
+
+
+
+
+
+math_practice = Resource.create(name: 'Math practice 6 grade',
+                            subject: 'Math',
+                            url: 'http://www.ixl.com/math/grade-6',
+                            grade_level: '6',
+                            public: true,
+                            price:10,
+                            description: "Here is a list of all of the skills students learn in sixth grade! These skills are organized into categories, and you can move your mouse over any skill name to view a sample question. To start practicing, just click on any link. IXL will track your score, and the questions will automatically increase in difficulty as you improve! ",
+                            educator_id: isaac.id)
+

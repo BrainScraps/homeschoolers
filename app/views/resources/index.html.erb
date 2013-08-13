@@ -1,24 +1,34 @@
 <h1>The Supply Cabinet</h1>
 
+<div id="supply_cabinet">
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Subject</th>
+        <th>Grade</th>
+        <th></th>
+        <th>Submitted by:</th>
 
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+        <th></th>
+        <th></th>
+      </tr>
 
-<% @public_resources.each do |r| %>
-  <tr>
-    <td><a href="<%= r.url %>"><%= r.name %></td>
-    <td><%= r.description %></td>
-    <td><%= r.grade_level %></td>
-    <td><%= r.subject %></td>
-    <td>Submitted by: <%= r.subject %></td>
-  </tr>
-<% end %>
-</table>
+    <% @resources.each do |resource| %>
+      <tr>
 
-<br />
+        <td><a href="<%= resource.url %>"><%= resource.name %></a></td>
+        <td><%= resource.subject %></td>
+        <td><%= resource.grade_level %></td>
+        <td><%= resource.educator.username %></td>
+        <td><%= link_to 'Show', resource %></td>
+        <td><%= link_to 'Edit', edit_resource_path(resource) %></td>
+        <td><%= link_to 'Destroy', resource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+    </table>
 
-<%= link_to 'Add a Resource', new_resource_path %>
+    <br />
+
+    <%= link_to 'New Resource', new_resource_path %>
+
+</div>
