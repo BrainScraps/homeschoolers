@@ -1,42 +1,48 @@
-<% if current_educator && current_educator.family %>
 
-<h1> The <%= current_educator.family.name %> family</h1>
+<% if current_educator.nil?  %>
+        <%=  render "splash" %>
 
-<div id="my_gettogethers">Calendar</div>
+<% else %>
 
-<div id="my_resources">
-  <table>
-    <thead>
-      <th>Name</th>
-      <th>Subject</th>
-      <th>Grade</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </thead>
+        <% if current_educator && current_educator.family %>
+        <h1> The <%= current_educator.family.name %> family</h1>
+
+        <div id="my_gettogethers">Calendar</div>
+
+        <div id="my_resources">
+          <table>
+            <thead>
+              <th>Name</th>
+              <th>Subject</th>
+              <th>Grade</th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </thead>
 
 
-    <% @public_resources.each do |resource| %>
-    <tr>
-        <td>  <%= resource.name %> </td>
-        <td>  <%= resource.subject %> </td>
-        <td>  <%= resource.grade_level %> </td>
+            <% @public_resources.each do |resource| %>
+            <tr>
+                <td>  <%= resource.name %> </td>
+                <td>  <%= resource.subject %> </td>
+                <td>  <%= resource.grade_level %> </td>
 
-        <td><%= link_to 'Show', resource %></td>
-        <td><%= link_to 'Edit', edit_resource_path(resource) %></td>
-        <td><%= link_to 'Destroy', resource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
+                <td><%= link_to 'Show', resource %></td>
+                <td><%= link_to 'Edit', edit_resource_path(resource) %></td>
+                <td><%= link_to 'Destroy', resource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+
+
+          </table>
+
+          <br />
+
+          <%= link_to 'New Resource', new_resource_path %>
+
+        </div>
+        <div id="public_resources"><%= link_to 'Supply Cabinet', resources_index_path %></div>
+        <div id="students">My students</div>
+
+     <% end %>
   <% end %>
-
-
-  </table>
-
-  <br />
-
-  <%= link_to 'New Resource', new_resource_path %>
-
-</div>
-<div id="public_resources"><%= link_to 'Supply Cabinet', resources_index_path %></div>
-<div id="students">My students</div>
-
-<% end %>
