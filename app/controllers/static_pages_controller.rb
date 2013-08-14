@@ -13,6 +13,7 @@ class StaticPagesController < ApplicationController
             @me = Educator.where(id: current_educator.id).first
             @family = @me.family.id
             @my_students = Student.where(family_id: @family)
+
       end
 
 

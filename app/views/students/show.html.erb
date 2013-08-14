@@ -13,6 +13,7 @@
           <th>Grade Level</th>
           <th>Description</th>
           <th>Due Date</th>
+          <th>Resource</th>
           <th></th>
           <th></th>
         </thead>
@@ -22,6 +23,7 @@
             <td>  <%= outcome.grade_level %> </td>
             <td>  <%= outcome.description %> </td>
             <td>  <%= outcome.due_date %> </td>
+            <td>  <%= outcome.resource.name if outcome.resource.present? %> </td>
 
             <td><%= link_to 'Show', outcome_path(outcome.id) %></td>
             <td><%= link_to 'Edit',  edit_outcome_path(outcome.id) %></td>
@@ -52,13 +54,11 @@
         <td>  <%= outcome.finish_date %> </td>
 
         <td><%= link_to 'Show', outcome_path(outcome.id) %></td>
-        <td><%= link_to 'Edit',  edit_outcome_path(outcome.id) %></td>
-        <td><%= link_to 'Destroy', outcome, method: :delete, data: { confirm: 'Are you sure?' } %></td
     </tr>
   <% end %>
   </table>
 
-<%= link_to 'Add a new Outcome', new_outcome_path %><br>
+<%= link_to 'Add a new Outcome', new_outcome_path(@student) %><br>
 <%= link_to 'Edit Student Profile', edit_student_path(@student) %> <br>
 <%= link_to 'Back', students_path %><br>
 

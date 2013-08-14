@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<h4> <%= @student.name %> Study Plan</h4>
+<%= render 'form' %>
 
 <%= link_to 'Edit', edit_outcome_path(@outcome) %> |
-<%= link_to 'Back', outcomes_path %>
+<%= link_to 'Back', student_path(@student.id) %>

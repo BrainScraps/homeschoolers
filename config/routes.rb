@@ -14,9 +14,13 @@ Homeschoolers::Application.routes.draw do
 
   get "gettogether/:id/show"
 
+
+
   resources :students
-  resources :outcomes
+  resources :outcomes, :except => :new
   #resources :resources
+
+  get "outcomes/new/:student_id" => 'outcomes#new', as: 'new_outcome'
 
   get "resources/index"
 
