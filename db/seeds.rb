@@ -166,11 +166,20 @@ exploratorium = Resource.create(name: 'Science Kits from the Exploratorium',
                             educator_id: isaac.id)
 
 milo_outcome = Outcome.create( grade_level: 'k',
-                                subject: 'Math',
-                                decription: 'Adding numbers from 1-10',
-                                due_date: '30-Aug-2013'
-                            )
+                                subject: 'Science',
+                                description: 'Learning the Solar System',
+                                due_date: '30-Aug-2013',
+                                resource_id: simple_science.id)
 
+milo_outcome2 = Outcome.create( grade_level: 'k',
+                                subject: 'Art',
+                                description: 'Drawing Pictures',
+                                due_date: '30-Aug-2013',
+                                resource_id: color_pencil.id)
+
+milo_completion = Completion.create(
+                            student_id: milo.id,
+                            outcome_id: milo_outcome.id)
 
 things = Forem::Category.new(name: "Things That Went Great").save
 bahs = Forem::Category.new(name: "Bay Area Homeschoolers").save
