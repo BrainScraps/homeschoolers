@@ -12,6 +12,7 @@
 
         <div id="my_resources">
           <table>
+            <title>My Resources</title>
             <thead>
               <th>Grade</th>
               <th>Subject</th>
@@ -68,9 +69,9 @@
                     <td><img src='assets/girl.png'></td>
                   <% end %>
 
-                <td><%= link_to 'Show', student %></td>
-                <td><%= link_to 'Edit', edit_student_path(student.id) %></td>
-                <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td><%= link_to 'Study Plan', student %></td>
+                <td><%= link_to 'Edit Student Profile', edit_student_path(student.id) %></td>
+                <td><%= link_to 'Delete Student', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
           <% end %>
 

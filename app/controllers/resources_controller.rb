@@ -47,7 +47,6 @@ class ResourcesController < ApplicationController
   def create
     @resource = Resource.new(params[:resource])
     @resource.educator_id = current_educator.id
-    @resource.public = true
     @resource.save
 
     respond_to do |format|

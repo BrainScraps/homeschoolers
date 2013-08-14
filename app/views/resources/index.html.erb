@@ -1,4 +1,4 @@
-<h1>Supply Cabinet</h1>
+<h1>The Supply Cabinet</h1>
 
 <table>
   <thead>
@@ -19,8 +19,6 @@
       <td>  <%= resource.educator.username %> </td>
 
       <td><%= link_to 'Show', resource %></td>
-      <td><%= link_to 'Edit', resources_edit_path(resource.id) %></td>
-      <td><%= link_to 'Destroy', resource, method: :delete, data: { confirm: 'Are you sure?' } %></td
   </tr>
 <% end %>
 
@@ -29,4 +27,3 @@
 
 <br />
 
-<%= link_to 'New Resource', new_resource_path %>

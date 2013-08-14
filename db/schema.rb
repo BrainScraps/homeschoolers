@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130814180541) do
+ActiveRecord::Schema.define(:version => 20130814203255) do
 
   create_table "educators", :force => true do |t|
     t.string   "username",               :default => "",               :null => false
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(:version => 20130814180541) do
     t.string   "city"
     t.datetime "created_at",                                           :null => false
     t.datetime "updated_at",                                           :null => false
-    t.boolean  "forem_admin",            :default => false
+    t.boolean  "forem_admin",            :default => true
     t.string   "forem_state",            :default => "pending_review"
     t.boolean  "forem_auto_subscribe",   :default => false
     t.string   "forums"
