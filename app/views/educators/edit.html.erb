@@ -42,6 +42,22 @@
       <%= f.label 'Please tell us about your history when it comes to homeschooling, what style of teaching/learning you find useful, etc.' %><br>
       <%= f.text_area :profile  %>
     </div>
+
+    <div class="control-group"
+
+      <%= label_tag "Which forums would you like to be a member of? " %>
+      <ul>
+        <% @forums.each do |forum| %>
+
+          <% checked = current_educator.member_of_category? forum.id %>
+          <%= check_box_tag("forums[]", forum.id, checked) %> <%= label_tag forum.name %> <br>
+
+
+        <% end %>
+      </ul>
+
+
+    </div>
     <div class="control-group">
       <%= f.button :submit %>
      </div>

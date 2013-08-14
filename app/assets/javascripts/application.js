@@ -13,3 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+
+$(document).ready( function(){
+  $('#add_new_forum').on("ajax:complete", function(){
+    document.location.reload(true);
+  });
+
+});

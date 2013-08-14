@@ -47,6 +47,17 @@ class Educator < ActiveRecord::Base
     result
   end
 
+  def forum_params_save(stringy_array)
+
+    arr = []
+    stringy_array.each { |x| arr << x.to_i}
+
+    self.forums = arr
+
+    self.save
+
+  end
+
 
 
   # def redirect_to_profile

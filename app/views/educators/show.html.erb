@@ -4,6 +4,15 @@
 
   <%= "Username: #{@educator.username} "%> 
   <br>
+
+  <% unless @educator.family.nil? %>
+    <%= "Your family: #{@educator.family.name} "%> 
+    <br>   
+    <%= "Your family motto: #{@educator.family.motto} "%> 
+    <br>
+  <% end %>
+
+
   <%= "About me: #{@educator.profile}" %>
   <br>
 

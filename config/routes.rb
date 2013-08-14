@@ -1,5 +1,19 @@
 Homeschoolers::Application.routes.draw do
 
+  get "gettogether/index"
+
+  post "gettogether/create"
+
+  get "gettogether/new"
+
+  get "gettogether/:id/edit"
+
+  post "gettogether/:id/update"
+
+  post "gettogether/:id/destroy"
+
+  get "gettogether/:id/show"
+
   resources :students
   resources :outcomes
   resources :resources

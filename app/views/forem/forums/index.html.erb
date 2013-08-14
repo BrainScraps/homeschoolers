@@ -3,6 +3,11 @@
 
   <%= render @categories %>
 </div>
+  <% if forem_user.nil? %>
+   <h2> We'd love to have you join the conversation! </h2>
+
+  <p> Please <%= link_to "sign up", main_app.new_educator_registration_path%> for a free account to see what other families are saying!</p>
+  <% end %>
 
 <br>
 <footer id='admin_link'>

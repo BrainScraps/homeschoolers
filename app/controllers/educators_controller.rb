@@ -10,6 +10,8 @@ class EducatorsController < ApplicationController
     @educator = Educator.find(params[:id])
     @family = @educator.family
 
+    @forums = Forem::Category.all
+
 
     #@educator.update_attributes(params[:educator])
   end
@@ -20,6 +22,8 @@ class EducatorsController < ApplicationController
     @educator = Educator.find(params[:id])
 
     @educator.update_attributes( params[:educator])
+
+    @educator.forum_params_save(params[:forums])
 
     if (params[:family_name] != '') && !@educator.family.nil?
       if @educator.family.name != params[:family_name]
