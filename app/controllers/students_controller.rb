@@ -3,6 +3,9 @@ class StudentsController < ApplicationController
   # GET /students.json
   def index
     @students = Student.all
+    # @educator = Educator.where(id: current_educator.id)
+    # @family = @educator.family
+    # @my_students = Student.where(family_id: @family.id)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -41,6 +44,8 @@ class StudentsController < ApplicationController
   # POST /students.json
   def create
     @student = Student.new(params[:student])
+    @student.family_id = current_educator.id
+    @student.save
 
     respond_to do |format|
       if @student.save

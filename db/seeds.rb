@@ -14,10 +14,10 @@ patsy = Educator.create(username: 'patsy',
                         family_id:  price.id,
                         forem_admin: true  )
 
-milo = Student.create(name: 'Milo', family_id: elias.id, birth: '2-14-2006', gender: 'male', grade: 'k')
-jane = Student.create(name: 'Jane', family_id: elias.id, birth: '2-14-2002', gender: 'female', grade: '5')
-jesse = Student.create(name: 'Jesse', family_id: price.id, birth: '2-14-1994', gender: 'male', grade: '11')
-ruby  = Student.create(name: 'Ruby', family_id: price.id, birth: '2-14-2000', gender: 'female', grade: '8')
+milo = Student.create(name: 'Milo', family_id: elias.id, birth: '14-2-2006', gender: 'male', grade: 'k')
+jane = Student.create(name: 'Jane', family_id: elias.id, birth: '23-6-2002', gender: 'female', grade: '5')
+jesse = Student.create(name: 'Jesse', family_id: price.id, birth: '9-9-1994', gender: 'male', grade: '11')
+ruby  = Student.create(name: 'Ruby', family_id: price.id, birth: '15-3-2000', gender: 'female', grade: '8')
 
 comm_calendar = Resource.create( name: 'Pleasanton Community Calendar',
                             subject: 'Other',
@@ -53,15 +53,18 @@ civil_war = Resource.create(name: 'Civil War lesson plan',
 
 
 math_practice = Resource.create(name: 'Math practice 6 grade',
-subject: 'Math',                             url:
-'http://www.ixl.com/math/grade-6',                             grade_level:
-'6',                             public: true,
-price: 9.95,                             description: "Here is a list of all
-of the skills students learn in sixth grade! These skills are organized into
-categories, and you can move your mouse over any skill name to view a sample
-question. To start practicing, just click on any link. IXL will track your
-score, and the questions will automatically increase in difficulty as you
-improve! ",                             educator_id: isaac.id)
+                subject: 'Math',
+                url: 'http://www.ixl.com/math/grade-6',
+                grade_level:'6',
+                public: true,
+                price: 9.95,
+                description: "Here is a list of all
+                of the skills students learn in sixth grade! These skills are organized into
+                categories, and you can move your mouse over any skill name to view a sample
+                question. To start practicing, just click on any link. IXL will track your
+                score, and the questions will automatically increase in difficulty as you
+                improve! ",
+                educator_id: isaac.id)
 
 
 math_games = Resource.create(name: 'Math games for 6 grader',
@@ -162,6 +165,12 @@ exploratorium = Resource.create(name: 'Science Kits from the Exploratorium',
                             description: "In the Discover section of the online exploratorium store, you'll find science kits for unlocking the mysteries of the laboratory, hands-on DIY art and electronics kits for finding new ways of putting things together, and how-to books that guide you in obtaining new skills and insights.",
                             educator_id: isaac.id)
 
+milo_outcome = Outcome.create( grade_level: 'k',
+                                subject: 'Math',
+                                decription: 'Adding numbers from 1-10',
+                                due_date: '30-Aug-2013'
+                            )
+
 
 things = Forem::Category.new(name: "Things That Went Great").save
 bahs = Forem::Category.new(name: "Bay Area Homeschoolers").save
@@ -176,9 +185,12 @@ monte = Forem::Category.new(name: "Montessori Style").save
 
 
 cats = []
-Forem::Category.all.each do |f| 
+Forem::Category.all.each do |f|
       isaac.forums << f.id
       patsy.forums << f.id
+
+
+
 end
 
 
