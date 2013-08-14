@@ -7,7 +7,7 @@ class Educator < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :username, :email, :password, :password_confirmation, :remember_me, :family_id,
-    :profile_picture, :profile, :city, :forums, :state
+    :profile_picture, :profile, :city, :forums, :state, :forem_admin
 
   serialize :forums, Array
 

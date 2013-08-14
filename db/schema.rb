@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130813014704) do
+ActiveRecord::Schema.define(:version => 20130813180859) do
 
   create_table "completions", :force => true do |t|
     t.integer  "student_id"
