@@ -6,15 +6,16 @@
 
         <% if current_educator && current_educator.family %>
         <h1> The <%= current_educator.family.name %> family</h1>
+        <h2> <%= current_educator.family.motto %> </h2>
 
         <div id="my_gettogethers">Calendar</div>
 
         <div id="my_resources">
           <table>
             <thead>
-              <th>Name</th>
-              <th>Subject</th>
               <th>Grade</th>
+              <th>Subject</th>
+              <th>Description</th>
               <th></th>
               <th></th>
               <th></th>
@@ -23,12 +24,12 @@
 
             <% @public_resources.each do |resource| %>
             <tr>
-                <td>  <%= resource.name %> </td>
-                <td>  <%= resource.subject %> </td>
                 <td>  <%= resource.grade_level %> </td>
+                <td>  <%= resource.subject %> </td>
+                <td>  <%= resource.name %> </td>
 
                 <td><%= link_to 'Show', resource %></td>
-                <td><%= link_to 'Edit', edit_resource_path(resource) %></td>
+                <td><%= link_to 'Edit', resources_edit_path(resource.id) %></td>
                 <td><%= link_to 'Destroy', resource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
           <% end %>
@@ -38,13 +39,45 @@
 
           <br />
 
-          <%= link_to 'New Resource', new_resource_path %>
+          <%= link_to 'Add a Resource', new_resource_path %>
 
-        </div>
+        </div> <!-- my resources -->
+
         <div id="public_resources"><%= link_to 'Supply Cabinet', resources_index_path %></div>
-        <div id="Forums"> <%= link_to "My Forums", forem.forums_path %>
-        <div id="students">My students</div>
 
+
+        <div id="students">
+          <table>
+            <thead>
+              <th>Name</th>
+              <th>Grade</th>
+
+              <th></th>
+              <th></th>
+              <th></th>
+            </thead>
+
+
+            <% @my_students.each do |student| %>
+            <tr>
+                <td>  <%= student.name %> </td>
+                <td>  <%= student.grade %> </td>
+                <% if student.gender == 'male' %>
+                    <td><img src='assets/boy.png'></td>
+                  <% else %>
+                    <td><img src='assets/girl.png'></td>
+                  <% end %>
+
+                <td><%= link_to 'Show', student %></td>
+                <td><%= link_to 'Edit', edit_student_path(student.id) %></td>
+                <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+
+          </table>
+
+          <%= link_to 'Add a Student', new_student_path %>
+        </div>
 
      <% end %>
   <% end %>

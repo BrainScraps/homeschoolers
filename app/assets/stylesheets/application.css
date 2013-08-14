@@ -12,7 +12,9 @@
  *= require_tree .
  */
 
-
+.container {
+            background: url('assets/images/apple.jpg') cover;
+          }
 img {
   height: 100px;
   width: 140px;

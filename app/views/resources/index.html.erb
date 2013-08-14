@@ -2,10 +2,10 @@
 
 <table>
   <thead>
-    <th>Name</th>
-    <th>Subject</th>
     <th>Grade</th>
-    <th></th>
+    <th>Subject</th>
+    <th>Description</th>
+    <th>Submitted by:</th>
     <th></th>
     <th></th>
   </thead>
@@ -13,13 +13,14 @@
 
   <% @public_resources.each do |resource| %>
   <tr>
-      <td>  <%= resource.name %> </td>
-      <td>  <%= resource.subject %> </td>
       <td>  <%= resource.grade_level %> </td>
+      <td>  <%= resource.subject %> </td>
+      <td>  <%= resource.name %> </td>
+      <td>  <%= resource.educator.username %> </td>
 
       <td><%= link_to 'Show', resource %></td>
-      <td><%= link_to 'Edit', edit_resource_path(resource) %></td>
-      <td><%= link_to 'Destroy', resource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Edit', resources_edit_path(resource.id) %></td>
+      <td><%= link_to 'Destroy', resource, method: :delete, data: { confirm: 'Are you sure?' } %></td
   </tr>
 <% end %>
 

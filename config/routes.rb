@@ -16,17 +16,20 @@ Homeschoolers::Application.routes.draw do
 
   resources :students
   resources :outcomes
-  resources :resources
+  #resources :resources
 
   get "resources/index"
 
-  get "resources/new"
+  get "resources/new" => 'resources#new', as: 'new_resource'
+  post "resources" => 'resources#create'
 
-  get "resources/show"
+  match "resources/:id" => 'resources#show', as: 'resource'
 
-  get "resources/destroy"
+  get "resources/destroy" => 'resources#destroy', as: 'resources_destroy'
 
-  get "resources/edit"
+  get   'resources/:id/edit' => 'resources#edit', as: 'resources_edit'
+  post  'resources/:id/update' => 'resources#update'
+
   # This line mounts Forem's routes at /forums by default.
   # This means, any requests to the /forums URL of your application will go to Forem::ForumsController#index.
   # If you would like to change where this extension is mounted, simply change the :at option to something different.
@@ -36,7 +39,7 @@ Homeschoolers::Application.routes.draw do
 
   devise_for :educators, :controllers => {:registrations => 'registrations'}
 
-  
+
   get   'educators/:id/edit' => 'educators#edit', as: 'educator_edit'
   post  'educators/:id/update' => 'educators#update', as: 'educator_update'
 

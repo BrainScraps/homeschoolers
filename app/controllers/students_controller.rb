@@ -3,6 +3,9 @@ class StudentsController < ApplicationController
   # GET /students.json
   def index
     @students = Student.all
+    # @educator = Educator.where(id: current_educator.id)
+    # @family = @educator.family
+    # @my_students = Student.where(family_id: @family.id)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +16,10 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.json
   def show
+
     @student = Student.find(params[:id])
+    @outcomes_tbd = @student.outcomes.where(finish_date: nil)
+    @outcomes_done = @student.outcomes.where("outcomes.finish_date IS NOT NULL")
 
     respond_to do |format|
       format.html # show.html.erb
@@ -41,6 +47,8 @@ class StudentsController < ApplicationController
   # POST /students.json
   def create
     @student = Student.new(params[:student])
+    @student.family_id = current_educator.id
+    @student.save
 
     respond_to do |format|
       if @student.save

@@ -2,13 +2,11 @@ class ResourcesController < ApplicationController
   # GET /resources
   # GET /resources.json
   def index
-    @resources = Resource.where(public_id: true)
+    @public_resources = Resource.where("public=true").order('grade_level ASC','subject ASC','name ASC')
   end
 
   def my_index
     @resources = Resource.where(educator_id: current_educator.id)
-
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @resources }
@@ -18,7 +16,7 @@ class ResourcesController < ApplicationController
   # GET /resources/1
   # GET /resources/1.json
   def show
-    # @resource = Resource.find(params[:id])
+    @resource = Resource.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -40,12 +38,17 @@ class ResourcesController < ApplicationController
   # GET /resources/1/edit
   def edit
     @resource = Resource.find(params[:id])
+
+
   end
 
   # POST /resources
   # POST /resources.json
   def create
     @resource = Resource.new(params[:resource])
+    @resource.educator_id = current_educator.id
+    @resource.public = true
+    @resource.save
 
     respond_to do |format|
       if @resource.save

@@ -11,16 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130814203255) do
-
-  create_table "completions", :force => true do |t|
-    t.integer  "student_id"
-    t.integer  "outcome_id"
-    t.date     "date"
-    t.string   "score"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+ActiveRecord::Schema.define(:version => 20130814180541) do
 
   create_table "educators", :force => true do |t|
     t.string   "username",               :default => "",               :null => false
@@ -40,7 +31,7 @@ ActiveRecord::Schema.define(:version => 20130814203255) do
     t.string   "city"
     t.datetime "created_at",                                           :null => false
     t.datetime "updated_at",                                           :null => false
-    t.boolean  "forem_admin",            :default => true
+    t.boolean  "forem_admin",            :default => false
     t.string   "forem_state",            :default => "pending_review"
     t.boolean  "forem_auto_subscribe",   :default => false
     t.string   "forums"
@@ -179,6 +170,10 @@ ActiveRecord::Schema.define(:version => 20130814203255) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
     t.date     "due_date"
+    t.integer  "resource_id"
+    t.string   "score"
+    t.date     "finish_date"
+    t.integer  "student_id"
   end
 
   create_table "resources", :force => true do |t|
