@@ -16,9 +16,10 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.json
   def show
+
     @student = Student.find(params[:id])
-
-
+    @outcomes_tbd = @student.outcomes.where(finish_date: nil)
+    @outcomes_done = @student.outcomes.where("outcomes.finish_date IS NOT NULL")
 
     respond_to do |format|
       format.html # show.html.erb

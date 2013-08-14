@@ -16,7 +16,7 @@ patsy = Educator.create(username: 'patsy',
 
 milo = Student.create(name: 'Milo', family_id: elias.id, birth: '14-2-2006', gender: 'male', grade: 'k')
 jane = Student.create(name: 'Jane', family_id: elias.id, birth: '23-6-2002', gender: 'female', grade: '5')
-jesse = Student.create(name: 'Jesse', family_id: price.id, birth: '9-9-1994', gender: 'male', grade: '11')
+jesse = Student.create(name: 'Jesse', family_id: price.id, birth: '9-9-2001', gender: 'male', grade: '6')
 ruby  = Student.create(name: 'Ruby', family_id: price.id, birth: '15-3-2000', gender: 'female', grade: '8')
 
 comm_calendar = Resource.create( name: 'Pleasanton Community Calendar',
@@ -164,6 +164,28 @@ exploratorium = Resource.create(name: 'Science Kits from the Exploratorium',
                             public: true,
                             description: "In the Discover section of the online exploratorium store, you'll find science kits for unlocking the mysteries of the laboratory, hands-on DIY art and electronics kits for finding new ways of putting things together, and how-to books that guide you in obtaining new skills and insights.",
                             educator_id: isaac.id)
+
+jesse_outcome = Outcome.create( grade_level: '6',
+                                subject: 'Art',
+                                description: 'Film Vocab',
+                                due_date: '5-Sept-2013',
+                                resource_id: film_vocab.id,
+                                student_id: jesse.id)
+
+jesse_outcome2 = Outcome.create( grade_level: '6',
+                                subject: 'Math',
+                                description: 'Algebra',
+                                due_date: '30-Aug-2013',
+                                resource_id: algebra.id,
+                                student_id: jesse.id)
+
+jesse_outcome3 = Outcome.create( grade_level: '6',
+                                subject: 'Math',
+                                description: 'Algebra',
+                                due_date: '30-Aug-2013',
+                                resource_id: algebra.id,
+                                finish_date: '19-Aug-2013',
+                                student_id: jesse.id)
 
 milo_outcome = Outcome.create( grade_level: 'k',
                                 subject: 'Science',
