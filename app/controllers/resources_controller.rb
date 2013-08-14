@@ -2,7 +2,7 @@ class ResourcesController < ApplicationController
   # GET /resources
   # GET /resources.json
   def index
-    @public_resources = Resource.where(public: true)
+    @public_resources = Resource.where("public=true").order('grade_level ASC','subject ASC','name ASC')
   end
 
   def my_index

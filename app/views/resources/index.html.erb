@@ -2,9 +2,9 @@
 
 <table>
   <thead>
-    <th>Name</th>
-    <th>Subject</th>
     <th>Grade</th>
+    <th>Subject</th>
+    <th>Description</th>
     <th>Submitted by:</th>
     <th></th>
     <th></th>
@@ -13,9 +13,9 @@
 
   <% @public_resources.each do |resource| %>
   <tr>
-      <td>  <%= resource.name %> </td>
-      <td>  <%= resource.subject %> </td>
       <td>  <%= resource.grade_level %> </td>
+      <td>  <%= resource.subject %> </td>
+      <td>  <%= resource.name %> </td>
       <td>  <%= resource.educator.username %> </td>
 
       <td><%= link_to 'Show', resource %></td>
