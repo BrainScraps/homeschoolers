@@ -1,10 +1,38 @@
-<%= simple_form_for(@resource) do |f| %>
-  <%= f.error_notification %>
+<%= form_for(@resource) do |f| %>
 
-  <div class="form-inputs">
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="field">
+    <%= f.label :subject %>
+    <%= f.text_field :subject %>
+  </div>
+
+  <div class="field">
+    <%= f.label :grade_level%>
+    <%= f.text_field :grade_level %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :url %>
+    <%= f.text_field :url %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
   </div>
 <% end %>

@@ -6,7 +6,10 @@ class StaticPagesController < ApplicationController
 
   def home
     @public_resources = Resource.where("public=true").order('name ASC')
-    # @my_resources = Resource.where(educator_id: current_educator.id)
+    @my_resources = Resource.where(educator_id: current_educator.id) unless current_educator.nil?
+
   end
+
+
 
 end
