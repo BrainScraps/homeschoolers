@@ -66,4 +66,22 @@ class GettogethersController < ApplicationController
 
 
   end
+
+  def add_attendee
+    @educ = Educator.find(params[:eid])
+
+    @gtg = Gettogether.find(params[:gid])
+
+
+    if @gtg.educators << @educ
+
+      redirect_to gettogether_path(@gtg.id)
+
+    else
+
+      redirect_to gettogethers_path
+
+    end
+
+  end
 end

@@ -14,6 +14,8 @@ Homeschoolers::Application.routes.draw do
 
   get "gettogethers/:id/show" => "gettogethers#show", as: 'gettogether'
 
+  post "add_attendee" => "gettogethers#add_attendee"
+
 
 
   resources :students
