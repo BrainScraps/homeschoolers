@@ -10,7 +10,7 @@ class Resource < ActiveRecord::Base
    # Resource.my_resources
 
   belongs_to :educator
-  has_and_belongs_to_many :outcomes
+  has_many :outcomes
 
 end
 

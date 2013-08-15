@@ -14,21 +14,29 @@ Homeschoolers::Application.routes.draw do
 
   get "gettogethers/:id/show" => "gettogethers#show", as: 'gettogether'
 
+
+
   resources :students
-  resources :outcomes
+  resources :outcomes, :except => :new
   #resources :resources
+
+  get "resources/add_resource/:id" => 'resources#add_resource', as: 'add_resource'
+
+  get "outcomes/new/:student_id" => 'outcomes#new', as: 'new_outcome'
 
   get "resources/index"
 
   get "resources/new" => 'resources#new', as: 'new_resource'
   post "resources" => 'resources#create'
 
-  match "resources/:id" => 'resources#show', as: 'resource'
 
-  get "resources/destroy" => 'resources#destroy', as: 'resources_destroy'
+ delete "resources/:id" => 'resources#destroy', as: 'resources_destroy'
 
   get   'resources/:id/edit' => 'resources#edit', as: 'resources_edit'
   post  'resources/:id/update' => 'resources#update'
+
+  match "resources/:id" => 'resources#show', as: 'resource'
+
 
   # This line mounts Forem's routes at /forums by default.
   # This means, any requests to the /forums URL of your application will go to Forem::ForumsController#index.

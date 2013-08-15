@@ -1,6 +1,8 @@
 class OutcomesController < ApplicationController
   # GET /outcomes
   # GET /outcomes.json
+
+
   def index
     @outcomes = Outcome.all
 
@@ -14,6 +16,7 @@ class OutcomesController < ApplicationController
   # GET /outcomes/1.json
   def show
     @outcome = Outcome.find(params[:id])
+    @student = @outcome.student
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,6 +28,7 @@ class OutcomesController < ApplicationController
   # GET /outcomes/new.json
   def new
     @outcome = Outcome.new
+    @student = Student.find_by_id(params[:student_id])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,12 +39,16 @@ class OutcomesController < ApplicationController
   # GET /outcomes/1/edit
   def edit
     @outcome = Outcome.find(params[:id])
+    @outcome.student_id = @student.id
+    @outcome.save
+
   end
 
   # POST /outcomes
   # POST /outcomes.json
   def create
     @outcome = Outcome.new(params[:outcome])
+    @outcome.save
 
     respond_to do |format|
       if @outcome.save

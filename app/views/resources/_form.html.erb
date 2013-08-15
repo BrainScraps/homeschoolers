@@ -43,6 +43,13 @@
     <%= f.text_field :price %>
   </div>
 
+  <div class="field">
+      <%= f.label :public %> <br />
+      <%= f.check_box :public %> <br />
+  </div>
+
+   <%= hidden_field_tag "outcome_id", @outcome.id unless @outcome.nil? %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
