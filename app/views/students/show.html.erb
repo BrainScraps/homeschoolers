@@ -7,7 +7,7 @@
 
 <h5><%= @student.name %>'s Study Plan</h5><br>
 <h6>Uncompleted outcomes</h6><br>
-    <table>
+    <table class="table table-striped">
         <thead>
           <th>Subject</th>
           <th>Grade Level</th>
@@ -25,15 +25,16 @@
             <td>  <%= outcome.due_date %> </td>
             <td>  <%= outcome.resource.name if outcome.resource.present? %> </td>
 
-            <td><%= link_to 'Show', outcome_path(outcome.id) %></td>
-            <td><%= link_to 'Edit',  edit_outcome_path(outcome.id) %></td>
-            <td><%= link_to 'Destroy', outcome, method: :delete, data: { confirm: 'Are you sure?' } %></td
+            <td><%= link_to 'Add a resource', add_resource_path(outcome.id) %></td>
+            <td><%= link_to 'View Outcome', outcome_path(outcome.id) %></td>
+            <td><%= link_to 'Edit Outcome',  edit_outcome_path(outcome.id) %></td>
+            <td><%= link_to 'Delete Outcome', outcome, method: :delete, data: { confirm: 'Are you sure?' } %></td
         </tr>
       <% end %>
     </table>
 
   <h6>Finished Outcomes</h6>
-  <table>
+  <table class="table table-striped">
     <thead>
       <th>Subject</th>
       <th>Grade Level</th>
@@ -60,6 +61,6 @@
 
 <%= link_to 'Add a new Outcome', new_outcome_path(@student) %><br>
 <%= link_to 'Edit Student Profile', edit_student_path(@student) %> <br>
-<%= link_to 'Back', students_path %><br>
+<%= link_to 'Back', root_path %><br>
 
 

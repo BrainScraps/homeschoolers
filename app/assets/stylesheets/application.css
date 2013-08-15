@@ -20,6 +20,19 @@ img {
   width: 140px;
 }
 
+h1 {
+  font-family: 'Happy Monkey', cursive;
+}
+
+h2 {
+  font-family: 'Flamenco', cursive;
+}
+
+h4 {
+  font-family: 'Delius', cursive;
+}
+
+
 .user .icon img {
   height: 60px;
   width: 60px;

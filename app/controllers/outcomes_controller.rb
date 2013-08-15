@@ -1,6 +1,8 @@
 class OutcomesController < ApplicationController
   # GET /outcomes
   # GET /outcomes.json
+
+
   def index
     @outcomes = Outcome.all
 

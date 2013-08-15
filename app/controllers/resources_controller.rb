@@ -13,6 +13,16 @@ class ResourcesController < ApplicationController
     end
   end
 
+  def add_resource
+    @resource = Resource.new
+    @outcome = Outcome.find_by_id(params[:id])
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @resource }
+    end
+  end
+
   # GET /resources/1
   # GET /resources/1.json
   def show
@@ -49,8 +59,15 @@ class ResourcesController < ApplicationController
     @resource.educator_id = current_educator.id
     @resource.save
 
+
+
+
     respond_to do |format|
       if @resource.save
+        if params[:outcome_id].present?
+          Outcome.find_by_id(params[:outcome_id]).update_attribute(:resource_id, @resource.id)
+          redirect_to root_path
+        end
         format.html { redirect_to @resource, notice: 'Resource was successfully created.' }
         format.json { render json: @resource, status: :created, location: @resource }
       else
@@ -83,7 +100,7 @@ class ResourcesController < ApplicationController
     @resource.destroy
 
     respond_to do |format|
-      format.html { redirect_to resources_url }
+      format.html { redirect_to root_path }
       format.json { head :no_content }
     end
   end
