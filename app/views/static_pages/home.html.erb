@@ -4,15 +4,52 @@
 
 <% else %>
 
+
+
         <% if current_educator && current_educator.family %>
         <h1 id="family" > The <%= current_educator.family.name %> family</h1>
         <h2 id="motto"> "<%= current_educator.family.motto %>"</h2>
 
-        <div id="my_gettogethers">Calendar</div>
 
-        <div id="my_resources">
+        <div id="students">
+            <h3>My Students</h3>
           <table class="table table-striped">
-            <title>My Resources</title>
+            <thead>
+              <th>Name</th>
+              <th>Grade</th>
+
+              <th></th>
+              <th></th>
+              <th></th>
+            </thead>
+
+
+            <% @my_students.each do |student| %>
+            <tr>
+                <td>  <%= student.name %> </td>
+                <td>  <%= student.grade %> </td>
+                <% if student.gender == 'male' %>
+                    <td><img src='assets/boy.png'></td>
+                  <% else %>
+                    <td><img src='assets/girl.png'></td>
+                  <% end %>
+
+                <td><%= link_to 'Study Plan', student %></td>
+                <td><%= link_to 'Edit Student Profile', edit_student_path(student.id) %></td>
+                <td><%= link_to 'Delete Student', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+          <% end %>
+
+          </table>
+
+          <%= link_to 'Add a Student', new_student_path, class: "btn btn-success" %>
+
+          <p> </p>
+        </div>
+        <div id="my_resources">
+            <h3>My Resources</h3>
+          <table class="table table-striped">
+          
             <thead>
               <th>Grade</th>
               <th>Subject</th>
@@ -47,39 +84,6 @@
 
         <div id="public_resources"><%= link_to 'Supply Cabinet', resources_index_path, class: "btn btn-info" %></div>
 
-
-        <div id="students">
-          <table class="table table-striped">
-            <thead>
-              <th>Name</th>
-              <th>Grade</th>
-
-              <th></th>
-              <th></th>
-              <th></th>
-            </thead>
-
-
-            <% @my_students.each do |student| %>
-            <tr>
-                <td>  <%= student.name %> </td>
-                <td>  <%= student.grade %> </td>
-                <% if student.gender == 'male' %>
-                    <td><img src='assets/boy.png'></td>
-                  <% else %>
-                    <td><img src='assets/girl.png'></td>
-                  <% end %>
-
-                <td><%= link_to 'Study Plan', student %></td>
-                <td><%= link_to 'Edit Student Profile', edit_student_path(student.id) %></td>
-                <td><%= link_to 'Delete Student', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            </tr>
-          <% end %>
-
-          </table>
-
-          <%= link_to 'Add a Student', new_student_path, class: "btn btn-success" %>
-        </div>
 
      <% end %>
   <% end %>
