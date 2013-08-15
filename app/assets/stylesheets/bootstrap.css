@@ -298,7 +298,7 @@ html {
 }
 
 body {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Junge', Georgia, Times, serif;
   font-size: 14px;
   line-height: 1.428571429;
   color: #333333;
@@ -353,7 +353,7 @@ hr {
   margin-top: 20px;
   margin-bottom: 20px;
   border: 0;
-  border-top: 1px solid #eeeeee;
+  border-top: 2px solid #DC7F00;
 }
 
 p {
@@ -429,8 +429,8 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 500;
+  font-family: 'Junge', Georgia, Times, serif;
+  font-weight: bold;
   line-height: 1.1;
 }
 

@@ -1,2 +1,65 @@
-<h1>Gettogether#show</h1>
-<p>Find me in app/views/gettogether/show.html.erb</p>
+
+<h2><%= @gtg.name %></h2>
+
+
+<div class='clearfix'> 
+  <h3> Come join us! </h3> 
+
+   <% if @gtg.picture != '' || @gtg.picture.nil? %>
+      <div class="col-12">
+        <%= image_tag @gtg.picture  %>
+      </div>
+
+    <% end %>
+  <p class='gtg-desc'> <%= @gtg.description %></p> 
+  <div class="col-4 col-offset-2"> 
+  <table class="table table-striped table-bordered">
+    <tr> 
+      <td> Start time:  </td><td> <%= @gtg.start_time.strftime("%A, %B %-d, %Y %-l:%M %P") %> </td>
+    </tr>
+    <tr> 
+      <td> End time:  </td><td> <%= @gtg.start_time.strftime("%A, %B %-d, %Y %-l:%M %P") %> </td>
+    </tr>
+    <tr> 
+      <td> Location:  </td><td> <%= raw "#{@gtg.address} <br> #{@gtg.city}, #{@gtg.state}" %> </td>
+    </tr>
+  </table>
+
+   <div id="leaflet"></div>
+  <% if @educators.size > 1 %>
+  <h4> These homeschoolers are coming, too! </h4> 
+
+  <ul>  
+    <% @educators.each do |ed|  %>
+      <li> <%= link_to  ed.username , educator_path( ed.id) %></li> 
+
+    <% end %>
+
+  </ul>   
+
+  <% else  %>
+    <h4> Be a "Get-together Trailblazer" </h4>
+    <p> and bring a friend along, too! </p> 
+
+
+  <% end %>
+
+  <%= link_to "Let's do it!", "#", class: "btn btn-success" %>
+  </div>
+</div>
+<% unless ((@gtg.latitude == '') || (@gtg.latitude == nil)) %>
+<script> 
+$(document).ready(function(){
+  var map = L.map('leaflet').setView([<%= @gtg.latitude %>, <%= @gtg.longitude %>], 10);
+
+  L.tileLayer('http://{s}.tile.cloudmade.com/API-key/997/256/{z}/{x}/{y}.png', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+    maxZoom: 18
+}).addTo(map);
+
+
+
+});
+</script>
+
+<% end %>

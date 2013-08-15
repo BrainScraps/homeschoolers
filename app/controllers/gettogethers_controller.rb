@@ -62,6 +62,8 @@ class GettogethersController < ApplicationController
   def show
     @gtg = Gettogether.find(params[:id])
 
+    @educators = @gtg.educators
+
 
   end
 end
