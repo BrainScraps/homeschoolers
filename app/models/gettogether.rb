@@ -3,6 +3,10 @@ class Gettogether < ActiveRecord::Base
 
   has_and_belongs_to_many :educators
 
+  geocoded_by :prep_address
+
+  after_validation :geocode
+
   #before_save :convert_datetimes
 
   def convert_datetimes(startz, endz)
@@ -17,5 +21,10 @@ class Gettogether < ActiveRecord::Base
 
   end    
 
+  def prep_address
+
+    [address, city, state].compact.join(',')
+
+  end
 
 end

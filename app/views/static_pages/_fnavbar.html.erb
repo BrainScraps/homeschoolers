@@ -1,7 +1,7 @@
     <div class="header">
       <ul class="nav nav-pills pull-right">
         <li><a href="/">Home</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><%= link_to "Get-togethers", main_app.gettogethers_path %> </li>
         <li><%= link_to "Forums", forem.forums_path %> </li>
 
         <% if params[:controller].include? "forem" %>
@@ -14,7 +14,7 @@
           <% end %>
         <% end %> 
       </ul>
-      <h3 class="text-muted logoized"><%= link_to "Kohwop", main_app.root_path %></h3>
+      <h3 class="text-muted logoized"><%= link_to "kohwop", main_app.root_path %></h3>
       
     </div>
     <hr>

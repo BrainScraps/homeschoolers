@@ -112,6 +112,7 @@ GEM
       railties (>= 3.0.0)
     friendly_id (4.0.9)
     gemoji (1.1.2)
+    geocoder (1.1.8)
     gli (2.7.0)
     highline (1.6.19)
     hike (1.2.3)
@@ -268,6 +269,7 @@ DEPENDENCIES
   factory_girl_rails (~> 4.0)
   forem!
   forem-bootstrap!
+  geocoder
   jquery-rails
   leaflet-rails
   meta_request

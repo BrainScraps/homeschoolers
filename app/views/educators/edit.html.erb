@@ -4,46 +4,46 @@
 
   <h2> Your Profile</h2> 
 
-
+  <div class="col-md-8 col-md-offset-2"
   <%= form_for @educator, url: "update", method: :post do |f| %>
 
       <% if @family.nil?  %>
-      <div class="control-group">
+      <div class="form-group">
         <%= "Your family name (i.e. 'The Free-Wheelin' Farleys' or simply 'The Terrells')" %>
-        <%= text_field_tag :family_name %>
+        <%= text_field_tag :family_name, class: 'form-control'  %>
       </div>
-      <div class="control-group">
+      <div class="form-group">
         <%= "Your family motto:" %>
-        <%= text_field_tag :family_motto  %>
+        <%= text_field_tag :family_motto, class: 'form-control' %>
       </div>
 
       <% else %>
-      <div class="control-group">
+      <div class="form-group">
         <%= "Your family name (i.e. 'The Free-Wheelin' Farleys' or simply 'The Terrells')" %>
-        <%= text_field_tag :family_name, @family.name %>
+        <%= text_field_tag :family_name, @family.name, class: 'form-control' %>
       </div>
-      <div class="control-group">
+      <div class="form-group">
         <%= "Your family motto:" %>
-        <%= text_field_tag :family_motto, @family.motto  %>
+        <%= text_field_tag :family_motto, @family.motto, class: 'form-control'  %>
       </div>
       <% end %>
    
-   <div class="control-group">
+   <div class="form-group">
       <%= f.label :city %>
-      <%= f.text_field :city %>
+      <%= f.text_field :city, class: 'form-control' %>
     </div>
 
-    <div class="control-group"> 
+    <div class="form-group"> 
       <%= f.label :state %>
-      <%= f.text_field :state %>
+      <%= f.text_field :state, class: 'form-control' %>
     </div>
 
-    <div class="control-group"> 
+    <div class="form-group"> 
       <%= f.label 'Please tell us about your history when it comes to homeschooling, what style of teaching/learning you find useful, etc.' %><br>
-      <%= f.text_area :profile  %>
+      <%= f.text_area :profile, class: 'form-control'  %>
     </div>
 
-    <div class="control-group"
+    <div class="form-group"
 
       <%= label_tag "Which forums would you like to be a member of? " %>
       <ul>
@@ -58,7 +58,7 @@
 
 
     </div>
-    <div class="control-group">
+    <div class="form-group">
       <%= f.button :submit %>
      </div>
   <% end %>

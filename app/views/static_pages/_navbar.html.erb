@@ -2,6 +2,7 @@
       <ul class="nav nav-pills pull-right">
         <li><a href="/">Home</a></li>
         <li><%= link_to "Forums", forem.forums_path %> </li>
+        <li><%= link_to "Get-togethers", gettogethers_path %> </li>
 
           <% if current_educator %>
             <li> <%= link_to "My Profile", educator_path(current_educator.id) %>
@@ -13,7 +14,7 @@
 
       </ul>
 
-       <h3 class="text-muted logoized"><%= link_to "Kohwop", root_path %></h3>
+       <h3 class="text-muted logoized"><%= link_to "kohwop", root_path %></h3>
      
     </div>
 
