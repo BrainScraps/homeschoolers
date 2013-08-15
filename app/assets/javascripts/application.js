@@ -12,12 +12,39 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require_tree 
 
 
 $(document).ready( function(){
   $('#add_new_forum').on("ajax:complete", function(){
     document.location.reload(true);
   });
+
+    $('#datetimepicker1').datetimepicker({
+  addSliderAccess: true,
+  sliderAccessArgs: { touchonly: false },
+  timezone: 'MT',
+  timeFormat: 'hh:mm tt',
+  timezoneList: [ 
+      { value: 'ET', label: 'Eastern'}, 
+      { value: 'CT', label: 'Central' }, 
+      { value: 'MT', label: 'Mountain' }, 
+      { value: 'PT', label: 'Pacific' } 
+    ]
+});
+
+    $('#datetimepicker2').datetimepicker({
+  addSliderAccess: true,
+  timeFormat: 'hh:mm tt',
+  sliderAccessArgs: { touchonly: false },
+  timezone: 'MT',
+  timezoneList: [ 
+      { value: 'ET', label: 'Eastern'}, 
+      { value: 'CT', label: 'Central' }, 
+      { value: 'MT', label: 'Mountain' }, 
+      { value: 'PT', label: 'Pacific' } 
+    ]
+});
+
 
 });

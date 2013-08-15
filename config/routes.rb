@@ -1,18 +1,18 @@
 Homeschoolers::Application.routes.draw do
 
-  get "gettogethers" => "gettogethers#index", as: 'index_gettogethers'
+  get "gettogethers" => "gettogethers#index", as: 'gettogethers'
 
-  post "gettogethers/create" => "gettogethers#create", as: 'create_gettogethers' 
+  post "gettogethers" => "gettogethers#create", as: 'create_gettogether' 
 
-  get "gettogethers/new" => "gettogethers#new", as: 'new_gettogethers'
+  get "gettogethers/new" => "gettogethers#new", as: 'new_gettogether'
 
-  get "gettogethers/:id/edit" => "gettogethers#edit", as: 'edit_gettogethers'
+  get "gettogethers/:id/edit" => "gettogethers#edit", as: 'edit_gettogether'
 
-  post "gettogethers/:id/update" => "gettogethers#update", as: 'update_gettogethers'
+  post "gettogethers/:id/update" => "gettogethers#update", as: 'update_gettogether'
 
-  post "gettogethers/:id/destroy" => "gettogethers#destroy", as: 'destroy_gettogethers'
+  post "gettogethers/:id/destroy" => "gettogethers#destroy", as: 'destroy_gettogether'
 
-  get "gettogethers/:id/show" => "gettogethers#show", as: 'show_gettogethers'
+  get "gettogethers/:id/show" => "gettogethers#show", as: 'gettogether'
 
   resources :students
   resources :outcomes

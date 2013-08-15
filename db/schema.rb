@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130814213201) do
+ActiveRecord::Schema.define(:version => 20130814224908) do
 
   create_table "educators", :force => true do |t|
     t.string   "username",               :default => "",               :null => false
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(:version => 20130814213201) do
 
   create_table "educators_gettogethers", :id => false, :force => true do |t|
     t.integer "educator_id"
-    t.integer "getogether_id"
+    t.integer "gettogether_id"
   end
 
   create_table "families", :force => true do |t|
