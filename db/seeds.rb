@@ -218,8 +218,44 @@ Forem::Category.all.each do |f|
       isaac.forums << f.id
       patsy.forums << f.id
 
+picnic = Gettogether.create(
+    name: "August Dublin Picnic",
+    start_time: DateTime.new(2013,8,19,11),
+    end_time: DateTime.new(20013,9,19,14),
+    picture: 'http://www.childrensheartfund.net/images/picnic1.jpg',
+    description: "Annual Dublin Homeschoolers Picnic",
+    address: "8200 Golden Eagle Way",
+    city: "Pleasanton",
+    state: "California"
+    )
 
+spelling = Gettogether.create(
+    name: "Spelling Bee practice",
+    start_time: DateTime.new(2013,8,18,14),
+    end_time: DateTime.new(20013,9,18,17),
+    picture: 'http://1.bp.blogspot.com/_Q-Oy7Fs3GXk/SYsGJsd1snI/AAAAAAAAA4c/GXkvvuCfd_0/s400/KATE+SPELLING+BEE.jpg',
+    description: "Get live practice for the City wide spelling bee",
+    address: "4477 Black Ave",
+    city: "Pleasanton",
+    state: "California"
+    )
+game = Gettogether.create(
+    name: "Game Strategy",
+    start_time: DateTime.new(2013,8,17,10),
+    end_time: DateTime.new(20013,9,17,12),
+    picture: 'http://www.admu.edu.ph/sites/default/files/styles/full/public/bg3.jpg',
+    description: "Learning Game play",
+    address: "400 Old Bernal Avenue",
+    city: "Pleasanton",
+    state: "California"
+    )
 
+      picnic.educators << isaac
+      picnic.educators << patsy
+      game.educators << isaac
+      game.educators << patsy
+      spelling.educators << isaac
+      spelling.educators << patsy
 end
 
 
