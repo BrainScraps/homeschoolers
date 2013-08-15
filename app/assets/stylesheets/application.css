@@ -37,7 +37,7 @@ h1 {
   font-weight: bold;
 }
 .nav li{
-  margin: 0px 4px;
+  margin: 0 4px;
 }
 
 .ui-timepicker-div .ui-widget-header { margin-bottom: 8px; }
