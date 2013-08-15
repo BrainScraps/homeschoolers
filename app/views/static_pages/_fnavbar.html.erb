@@ -2,6 +2,8 @@
       <ul class="nav nav-pills pull-right">
         <li><a href="/">Home</a></li>
         <li><a href="#">Contact</a></li>
+        <li><%= link_to "Forums", forem.forums_path %> </li>
+
         <% if params[:controller].include? "forem" %>
           <% if current_educator %>
             <li> <%= link_to "My Profile", main_app.educator_path(current_educator.id) %>
@@ -12,5 +14,7 @@
           <% end %>
         <% end %> 
       </ul>
-      <h3 class="text-muted">kohwop.com</h3>
+      <h3 class="text-muted logoized"><%= link_to "Kohwop", main_app.root_path %></h3>
+      
     </div>
+    <hr>

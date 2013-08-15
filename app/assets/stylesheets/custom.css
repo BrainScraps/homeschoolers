@@ -1,7 +1,21 @@
-body {
-  padding-top: 50px;
-}
+
 .starter-template {
   padding: 40px 15px;
   text-align: center;
+}
+
+.header .text-muted a {
+  color: #555555;
+  font-size: 1.8em;
+}
+
+.text-muted a:hover {
+  text-decoration: none;
+}
+
+.container {
+            background: url('assets/images/apple.jpg') cover;
+          }
+.logoized {
+  font-family: 'Happy Monkey', cursive;
 }

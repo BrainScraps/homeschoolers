@@ -4,7 +4,10 @@
 
 
 .container {
-  background: url('apple.jpg') no-repeat center fixed;
-  height: 900px;
-  width:1200px;
+  //background: url('apple.jpg') no-repeat center fixed;
+  background-color: #fffaea;
+  padding: 0px 14px;
+  -webkit-box-shadow: 0px 8px 8px 2px #0c0c12;
+          box-shadow: 0px 8px 8px 2px #0c0c12;
+
 }
