@@ -6,7 +6,7 @@
 
         <% if current_educator && current_educator.family %>
         <h1 id="family" > The <%= current_educator.family.name %> family</h1>
-        <h2 id="motto"> <%= current_educator.family.motto %> </h2>
+        <h2 id="motto"> "<%= current_educator.family.motto %>"</h2>
 
         <div id="my_gettogethers">Calendar</div>
 
@@ -40,11 +40,12 @@
 
           <br />
 
-          <%= link_to 'Add a Resource', new_resource_path %>
+          <%= link_to 'Add a Resource', new_resource_path, class: "btn btn-info" %>
+          <p> </p>
 
         </div> <!-- my resources -->
 
-        <div id="public_resources"><%= link_to 'Supply Cabinet', resources_index_path %></div>
+        <div id="public_resources"><%= link_to 'Supply Cabinet', resources_index_path, class: "btn btn-info" %></div>
 
 
         <div id="students">
@@ -77,7 +78,7 @@
 
           </table>
 
-          <%= link_to 'Add a Student', new_student_path %>
+          <%= link_to 'Add a Student', new_student_path, class: "btn btn-success" %>
         </div>
 
      <% end %>

@@ -315,7 +315,7 @@ textarea {
 }
 
 a {
-  color: #428bca;
+  color: #905300;
   text-decoration: none;
 }
 
@@ -1260,7 +1260,7 @@ th {
 
 .table-striped > tbody > tr:nth-child(odd) > td,
 .table-striped > tbody > tr:nth-child(odd) > th {
-  background-color: #b7e5cc;
+  background-color: #d5f0e1;
 }
 
 .table-hover > tbody > tr:hover > td,

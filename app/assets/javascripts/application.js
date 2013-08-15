@@ -46,12 +46,10 @@ $(document).ready( function(){
     ]
 });
 
-    $('#add_attendee').on('click' function(e){
-      e.preventDefault();
 
-      $.()
+    $(".gtg-banner").first().hide();
 
-    })
+    
 
 
 });

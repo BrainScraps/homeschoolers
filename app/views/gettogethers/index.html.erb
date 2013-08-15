@@ -1,11 +1,16 @@
+
+<div class="gtg-banner">
 <h1> Get-togethers!</h1>
 <p>Here are some Get-togethers you may be interested in.</p>
-
+</div>
 <div class="calendar_box" id="weekly_cal">
 
-<div class="span6 center"> <h3> <%= weekly_links(:date => @date) %> </h3>  </div>
+<div class="span6 center weeklinks"> <h3> <%= weekly_links(:date => @date) %> </h3>  </div>
 
 
+
+</h3>
+</div>
 <%= weekly_calendar(@events, :date => @date, :include_24_hours => true) do |w| %>
   <%= w.week(:business_hours => params[:business_hours], :clickable_hours => true) do |event,truncate| %>
 

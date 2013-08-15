@@ -27,3 +27,19 @@
   height: 300px;
   width: 300px;
 }
+
+.nav > li > a {
+color: #ffffff;
+font-weight: bold;
+}
+
+.feature_list{
+  font-size: 1.2em;
+
+}
+
+.intro_para{
+  font-size: 1.2em;
+  padding: 8px 20px;
+
+}
