@@ -51,7 +51,7 @@ class WeeklyCalendar::Builder
           for event in @objects
             if event.start_time.strftime('%j').to_s == day.strftime('%j').to_s 
              if event.start_time.strftime('%H').to_i >= start_hour and event.end_time.strftime('%H').to_i <= end_hour
-                concat(tag("div", :class => "week_event", :style =>"left:#{left(event.start_time,options[:business_hours])}px;width:#{width(event.start_time,event.end_time)}px;", :onclick => "location.href='/events/#{event.id}';"))
+                concat(tag("div", :class => "week_event", :style =>"left:#{left(event.start_time,options[:business_hours])}px;width:#{width(event.start_time,event.end_time)}px;", :onclick => "location.href='/gettogethers/#{event.id}';"))
                   truncate = truncate_width(width(event.start_time,event.end_time))
                   yield(event,truncate)
                 concat("</div>")
