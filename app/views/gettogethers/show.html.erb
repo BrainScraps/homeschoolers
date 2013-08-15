@@ -5,7 +5,7 @@
 <div class='clearfix'> 
   <h3> Come join us! </h3> 
 
-   <% if @gtg.picture != '' || @gtg.picture.nil? %>
+   <% if @gtg.picture != '' && @gtg.picture %>
       <div class="col-12">
         <%= image_tag @gtg.picture  %>
       </div>
@@ -25,8 +25,12 @@
     </tr>
   </table>
 
-   <div id="leaflet"></div>
-  <% if @educators.size > 1 %>
+   <div class="gtg-map">
+    <img class="img-rounded" src="http://maps.googleapis.com/maps/api/staticmap?center=<%= @gtg.latitude %>,<%= @gtg.longitude %>&zoom=14&size=300x300&sensor=false&markers=color:blue%7Clabel:I%7C<%= @gtg.latitude %>,<%= @gtg.longitude %>&key=AIzaSyCSCtCnx4v9t1dbUR8L6In6dXZFSkuvne8"></img>
+
+
+   </div>
+  <% if @educators.size > 0 %>
   <h4> These homeschoolers are coming, too! </h4> 
 
   <ul>  
@@ -43,23 +47,13 @@
 
 
   <% end %>
+  <%= form_tag "#{root_url}/add_attendee", method: 'post' do %>
+    <%= hidden_field_tag "eid", current_educator.id %>
+    <%= hidden_field_tag "gid", @gtg.id %>
 
-  <%= link_to "Let's do it!", "#", class: "btn btn-success" %>
+    <%= button_tag "Let's do it!", class: "btn btn-success" %>
+
+  <% end %>
   </div>
 </div>
-<% unless ((@gtg.latitude == '') || (@gtg.latitude == nil)) %>
-<script> 
-$(document).ready(function(){
-  var map = L.map('leaflet').setView([<%= @gtg.latitude %>, <%= @gtg.longitude %>], 10);
 
-  L.tileLayer('http://{s}.tile.cloudmade.com/API-key/997/256/{z}/{x}/{y}.png', {
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
-    maxZoom: 18
-}).addTo(map);
-
-
-
-});
-</script>
-
-<% end %>

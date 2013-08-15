@@ -46,5 +46,12 @@ $(document).ready( function(){
     ]
 });
 
+    $('#add_attendee').on('click' function(e){
+      e.preventDefault();
+
+      $.()
+
+    })
+
 
 });

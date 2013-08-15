@@ -22,3 +22,8 @@
 }
 
 #leaflet { height: 220px; }
+
+.gtg-map img {
+  height: 300px;
+  width: 300px;
+}
