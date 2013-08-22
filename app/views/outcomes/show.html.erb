@@ -1,7 +1,17 @@
 <p id="notice"><%= notice %></p>
 
 <h4> <%= @student.name %> Study Plan</h4>
-<%= render 'form' %>
+
+
+<p> Description:  <%= @outcome.description %> </p>
+
+<p> Grade level: <%= @outcome.grade_level  %> </p>
+
+<p> Subject: <%= @outcome.subject  %> </p>
+
+<p> Due date: <%= @outcome.due_date  %> </p>
+
+
 
 <%= link_to 'Edit', edit_outcome_path(@outcome) %> |
 <%= link_to 'Back', student_path(@student.id) %>

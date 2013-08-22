@@ -11,7 +11,7 @@ class StaticPagesController < ApplicationController
       if current_educator
             @my_resources = Resource.where(educator_id: current_educator.id)
             @me = Educator.where(id: current_educator.id).first
-            @family = @me.family.id
+            @family = @me.family.id unless @me.family.nil?
             @my_students = Student.where(family_id: @family)
 
       end
