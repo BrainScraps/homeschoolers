@@ -2,6 +2,15 @@
 <% if current_educator.nil?  %>
         <%=  render "splash" %>
 
+<% elsif current_educator.family.nil?%>
+
+  <h4> To start enjoying (pretty much all of) the features of kohwop, please fill out a profile, particularly the "Family" info. </h4>
+
+  <%= link_to "Edit My Profile", educator_edit_path(current_educator.id), class: "btn btn-info" %>
+
+
+
+
 <% else %>
 
 
@@ -34,9 +43,9 @@
                     <td><img src='assets/girl.png'></td>
                   <% end %>
 
-                <td><%= link_to 'Study Plan', student %></td>
-                <td><%= link_to 'Edit Student Profile', edit_student_path(student.id) %></td>
-                <td><%= link_to 'Delete Student', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td><%= link_to 'Study Plan', student, class: 'btn btn-primary' %></td>
+                <td><%= link_to 'Edit Student Profile', edit_student_path(student.id), class: 'btn btn-info' %></td>
+                <td><%= link_to 'Delete Student', student, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
           <% end %>
 
@@ -66,9 +75,9 @@
                 <td>  <%= resource.subject %> </td>
                 <td>  <%= resource.name %> </td>
 
-                <td><%= link_to 'Show', resource %></td>
-                <td><%= link_to 'Edit', resources_edit_path(resource.id) %></td>
-                <td><%= link_to 'Destroy', resource, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                <td><%= link_to 'Show', resource, class: 'btn btn-info' %></td>
+                <td><%= link_to 'Edit', resources_edit_path(resource.id), class: 'btn btn-warning' %></td>
+                <td><%= link_to 'Destroy', resource, class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
           <% end %>
 

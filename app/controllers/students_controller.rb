@@ -47,7 +47,7 @@ class StudentsController < ApplicationController
   # POST /students.json
   def create
     @student = Student.new(params[:student])
-    @student.family_id = current_educator.id
+    @student.family_id = current_educator.family.id
     @student.save
 
     respond_to do |format|

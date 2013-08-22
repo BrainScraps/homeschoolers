@@ -11,39 +11,39 @@
       </div>
     <% end %>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :name %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :subject %>
-    <%= f.text_field :subject %>
+    <%= f.text_field :subject, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :grade_level%>
-    <%= f.text_field :grade_level %>
+    <%= f.text_field :grade_level, class: 'form-control' %>
   </div>
 
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :description %>
-    <%= f.text_field :description %>
+    <%= f.text_field :description, class: 'form-control' %>
   </div>
 
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :url %>
-    <%= f.text_field :url %>
+    <%= f.text_field :url, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :price %>
-    <%= f.text_field :price %>
+    <%= f.text_field :price, class: 'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="field form-group">
       <%= f.label :public %> <br />
       <%= f.check_box :public %> <br />
   </div>
@@ -54,3 +54,5 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+

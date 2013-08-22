@@ -1,6 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<%= render 'form' %>
+
+<h3> Resource: ' <%=  @resource.name %> '</h3>
+
+<p> Description:  <%= @resource.description %> </p>
+
+<p> Link: <%= link_to @resource.url , @resource.url %></p>
+
+<p> <%= "Grade : #{@resource.grade_level} - "%> </p> 
+<p>  <%= "Subject: #{@resource.subject} "  %> </p>
+
+<p> <%= "Price : #{ number_to_currency @resource.price.to_s}  "  %> </p>
+
+<p> Public:  <%= @resource.public? ? "Yes" : "No"   %> </p>
+
 
 <%= link_to 'Edit', resources_edit_path(@resource) %> |
 <%= link_to 'Back', resources_path %>
